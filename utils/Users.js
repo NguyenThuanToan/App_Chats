@@ -8,7 +8,7 @@ function userJoin(id,username, room){
 
 //Lấy user hiện tại
 function getCurrentUser(id){
-    return users.find(user => user.if === id)
+    return users.find(user => user.id === id)
 }
 
 //User rời chat

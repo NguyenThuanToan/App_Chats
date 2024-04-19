@@ -24,7 +24,7 @@ socket.on('roomUsers',({room,users})=>{
 
 
 //Tin nhắn từ server
-socket.on('message', message=>{
+socket.on('message', message =>{
     console.log(message);
     outputMessage(message)
     //Thanh cuộn tin nhắn
@@ -32,10 +32,11 @@ socket.on('message', message=>{
 })
 
 //gửi tin nhắn
-chatForm.addEventListener('submit', e =>{
+chatForm.addEventListener('submit', (e) =>{
     e.preventDefault();
     //Lấy tin nhắn
     const msg = e.target.elements.msg.value;
+    // console.log(msg);
     //Gửi tin nhắn đến server
     socket.emit('chatMessage', msg);
     //Làm sạch những thứ đã nhập
@@ -49,9 +50,10 @@ function outputMessage(message){
     div.classList.add('message')
     div.innerHTML = `<p class="meta">${message.username}<span>${message.time}</span></p>
     <p class="text">
-        ${message.text}
+    ${message.text}
     </p>`;
     document.querySelector('.chat-messages').appendChild(div);
+    
 }
 
 //Thêm room vào DOM
